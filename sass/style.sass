@@ -9,12 +9,54 @@ $darkgrey: #323232
 
 
 body
-	min-height: 1200px
+	min-width: 1200px
 	font-family: 'Roboto', sans-serif
 	font-size: 16px
 	line-height: 22px 
 	color: white
-	background: $dirtgreen
+	background-color: $dirtgreen
+	& > input
+		display: none
+
+#btn-1:checked ~ .site-wrapper #slide1,
+#btn-2:checked ~ .site-wrapper #slide2,
+#btn-3:checked ~ .site-wrapper #slide3
+	display: block 
+	
+#btn-1:checked ~ .site-wrapper label[for="btn-1"],
+#btn-2:checked ~ .site-wrapper label[for="btn-2"],
+#btn-3:checked ~ .site-wrapper label[for="btn-3"]
+	background-color: white
+
+#btn-1:checked ~ .site-wrapper
+	background-color: $dirtgreen
+	background-image: url('../img/slide_1.png')
+
+#btn-2:checked ~ .site-wrapper
+	background-color: #8996a6
+	background-image: url('../img/slide_2.png')
+
+#btn-3:checked ~ .site-wrapper
+	background-color: #9d8b84
+	background-image: url('../img/slide_3.png')
+
+
+#btn-1:checked ~ .site-wrapper .user-block a 
+	background-color: #9db1a5
+
+#btn-2:checked ~ .site-wrapper .user-block a 
+	background-color: #a3aebb
+
+#btn-3:checked ~ .site-wrapper .user-block a 
+	background-color: #b5a7a1
+
+
+
+.site-wrapper
+	
+	background-repeat: no-repeat
+	background-position: 50.1% 0%
+	transition: background-image 0.5s ease, background-color 0.5s ease 
 
 .wrapper
 	width: 1200px
@@ -24,9 +66,25 @@ body
 .no-padding
 	padding: 0
 
+.btnbtn
+	display: inline-block
+	padding: 5px 19px
+	font-weight: 600
+	font-size: 32px
+	line-height: 41px
+	color: white
+	text-decoration: none
+	text-shadow: 0 2px 5px rgba(160, 32, 11, 0.76)
+	background: $orange
+	background: linear-gradient(to top, #e44a35, #f06742)
+	border: 0 none
+	border-radius: 30px
+	box-shadow: 1px 2px 2px rgba(160, 32, 11, 0.5) 
+
 
 .main-header
 	display: flex
+	position: relative
 	a 
 		color: white
 		text-decoration: none
@@ -80,6 +138,7 @@ body
 		min-width: 32px
 		background: $dirtlightgreen
 		border-radius: 16px
+		transition: background-color 0.5s ease
 	.login::before, .cart-link::before
 		content: ""
 		position: absolute
@@ -103,19 +162,79 @@ body
 	.cart-link::before
 		background-position: -29px -113px
 
-
-
-
-.features
-	height: 580px
+.telefons
+	position: absolute
+	right: 26px
+	top: 73px
+	text-align: right
 	p 
 		margin: 0
+		font-weight: bold
+	.time
+		font-size: 14px
+		line-height: 16px
+	.tel
+		margin-top: 4px
+		font-size: 22px
+		line-height: 24px
+
+
+.slider
+	position: relative
+	padding-top: 326px
+	text-align: center
+	color: white
+	.slide
+		display: none 
+
+	p 
+		margin: 0 auto
 		padding: 0
+		width: 700px
+		font-weight: 800
+		font-size: 60px
+		line-height: 60px
+	.slide-btn
+		display: inline-block
+		padding: 11px 41px
+		margin-top: 31px
+		font-weight: 600
+		font-size: 32px
+		line-height: 41px
+		vertical-align: top
+		color: white
+		text-decoration: none
+		text-shadow: 0 2px 5px rgba(160, 32, 11, 0.76)
+		background: $orange
+		background: linear-gradient(to top, #e44a35, #f06742)
+		border-radius: 100px
+		box-shadow: 1px 2px 1px rgba(160, 32, 11, 0.5) 
+	.slider-control
+		position: absolute
+		left: 0
+		bottom: 21px
+		z-index: 2
+		font-size: 0
+
+		label
+			display: inline-block
+			vertical-align: top
+			width: 21px
+			height: 21px
+			margin-right: 8px
+			border: 2px solid white
+			border-radius: 50%
+			cursor: pointer
+			background-color: transparent
+
+
+
 
 
 .special-offers
 	display: flex
 	justify-content: space-between
+	margin-top: 41px
 	.offer
 		position: relative
 		width: 560px
@@ -156,7 +275,7 @@ body
 	display: flex
 	justify-content: space-between
 	padding: 40px 0 0
-	.best-item
+	.ice-item
 		width: 267px
 		position: relative
 		&::before
@@ -169,7 +288,7 @@ body
 			background: url("../img/sprite.png"), white
 			background-position: -11px 708px
 			border-radius: 50%
-	.best-item-price
+	.ice-item-price
 		position: absolute
 		font-size: 45px
 		font-weight: bold
@@ -178,23 +297,29 @@ body
 		left: 0
 		span 
 			font-size: 30px
+		.rub
+			font-size: 40px
+			font-weight: 400
+			font-family: fontello
 	img
 		width: 267px
 		height: 267px
 		display: block
 
-	.best-item-disc
+	.ice-item-disc
 		margin-top: 12px
-		margin-bottom: 39px
+		margin-bottom: 0
 		text-align: center
+		span 
+			border-bottom: 1px solid rgba(255, 255, 255, .2)
+
 
 .about-us
-	//min-height: 308px //!!!!!
-	margin-bottom: 40px
 	color: $darkgrey
 	background: url("../img/wafle.jpg"), #efe7d6
 	border-radius: 12px
 	padding: 25px 18px 25px 21px
+	margin-top: 38px
 	p 
 		display: inline-block
 		position: relative
@@ -232,27 +357,191 @@ body
 
 
 .info-block
-	height: 220px
-	margin-bottom: 40px
+	margin-top: 40px
 	display: flex
 	justify-content: space-between
+	font-weight: bold
+	color: black
+	
 	.info-card
+		position: relative
 		width: 560px
+		font-weight: bold
+		border-radius: 12px
+		background: white
+	.news-card
+		padding: 22px 250px 39px 20px
+		background: white url("../img/strawberry.jpg") 
+		background-position: 33% 41%
+		a 	
+			display: inline-block
+			font-size: 24px
+			line-height: 30px
+			margin-top: 4px
+			color: black
+	.letterbox
+		$color1: #f8f7f4
+		$color2: #92cdff  
+		$color3: #fe9e90
+		$delta: 7px
+		display: flex
+		background: repeating-linear-gradient(135deg, $color1, $color1 $delta, $color2 $delta, $color2 $delta*2, $color1 $delta*2, $color1 $delta*3, $color3 $delta*3, $color3 $delta*4)
+		padding: 5px 6px
+	.subscribe-form
+		position: relative
+		border-radius: 12px
+		background: #f8f7f4
+		padding: 27px 17px 36px 21px
+		font-size: 0
+		line-height: 22px
+		font-weight: 400
+		color: #5a5a5a
+		label
+			display: block
+			font-size: 16px
+			margin-bottom: 36px
+		input
+			font-size: 16px
+			display: inline-block
+			vertical-align: middle
+		input[type="email"]
+			
+			padding: 13px 157px 11px 13px
+			border: 1px solid #d3d3d2
+			border-radius: 5px
+		.submit-btn
+			cursor: pointer
+			margin-left: 11px;
+			padding: 10px 19px
+			font-weight: bold
+			font-size: 18px
+			line-height: 24px
+			font-family: inherit
+
+		
+
+	.info-card-title
+		font-size: 16px
+		font-weight: 500
+		line-height: 22px
+		margin: 0
 
 .location-map
-	height: 430px
+	margin-top: 40px
+	position: relative
+	.contact-container
+		display: flex
+		height: 430px
+		align-items: start
+	.map-view
+		position: absolute
+		width: 100%
+		height: 430px
+		background: #ddd
+		z-index: 1
 
+.contact-card
+	z-index: 5
+	background: white
+	color: black
+	border-radius: 12px
+	margin-left: auto
+	margin-top: 62px
+	padding: 29px 26px 31px 25px
+	h2, p
+		margin: 0
+		font-size: 14px
+		line-height: 20px
+		font-weight: normal
+	address, .tel, .feedback-btn
+		margin: 0
+		font-size: 18px
+		line-height: 24px
+		font-style: normal
+		font-weight: bold
+	.feedback-btn
+		padding: 10px 27px
+		margin-top: 26px
+	address
+		margin-top: 1px
+	p:nth-child(3)
+		margin-top: 17px
+	.tel
+		margin-top: 5px
 
 .main-footer
+	padding-top: 10px
 	height: 103px
 	display: flex
 	.social
-		width: 187px
-	.docs
-		width: 380px
-		margin-left: 190px
-	.copyright
-		width: 267px
-		margin-left: auto			
+		width: 210px
+		font-size: 0
+		margin-top: 24px
+		a 	
+			display: inline-block
+			width: 40px
+			height: 40px
+			margin-right: 9px
+			background: url("../img/sprite.png"), transparent
+		a:nth-child(1)
+			background-position: -20px -459px
+		a:nth-child(2)
+			background-position: -20px -514px
+		a:nth-child(3)
+			background-position: -20px -571px
+		a:nth-child(4)
+			background-position: -20px -628px	
+
+
+.docs
+	width: 380px
+	margin-left: 212px
+	margin-top: 24px
+	font-size: 13px
+	line-height: 15px
+	font-weight: normal
+	a 
+		display: inline-block
+		margin-right: 28px
+		margin-bottom: 6px
+		color: white
+		text-decoration: none
+		border-bottom: 1px solid rgba(255, 255, 255, .2)
+		position: relative
+	a:nth-child(1)
+		font-weight: bold
+		&::before
+			content: ""
+			position: absolute
+			width: 20px
+			height: 20px
+			background: url("../img/sprite.png"), transparent
+			background-position: -30px -683px
+			left: -24px
+			top: -2px
+	a:nth-child(4)
+		margin-left: 12px
+
+.copyright
+	margin-left: auto
+	font-size: 12px
+	line-height: 18px
+	.copyright-text
+		display: block
+		margin: 0
+		margin-top: 3px
+	a 
+		text-decoration: none
+		color: white
+		border-bottom: 1px solid rgba(255, 255, 255, .2)
+	.copyright-img
+		display: block
+		margin-left: 2px
+		background: url("../img/html_academ.png"), transparent
+		width: 108px
+		height: 38px
+		border: none
+		margin-top: 8px
+
 
 @import 'media.sass';
